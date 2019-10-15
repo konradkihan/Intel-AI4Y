@@ -1,10 +1,14 @@
 # Intel-AI4Y
 # AI for intel AI4Y project
 
-Used libraries 11.10.2019 - 1 commit
+Used external modules
   - cv2
   - numpy
   - matplotlib
+  - PIL
+  - pandas
+  - object_detection
+  - tensorflow
   
   Added face recognision OPV intel algorithm and image_read() function.
 
