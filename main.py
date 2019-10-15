@@ -1,11 +1,11 @@
 """
 Program made for Intel AI4Y project.
 It recognizes pokemons like Pikachu via image.
-Based on Intel AI4Y project materials, some random stackoverflow solutions and own knowledge.
+Based on Intelb AI4Y project materials, some random stackoverflow solutions and own knowledge.
 Put images ONLY in "images input folder"
 Has an additional files for trashy functions and classes - additional_defs.py. DO NOT run WITHOUT second file in
 same directory.
-"images_input" - testing directory
+"images_train" - testing directory
 Made by: Konrad Kihan-Wąsik and Mateusz Krzyżostanek    ZSL GDANSK
 
 increase counter if edited code:
@@ -26,20 +26,24 @@ import argparse
 import additional_defs  # file module with custom and additional solutions
 
 # creating "images_input" folder if not existing; IMPORTANT - creates a location where files are stored
-if not os.path.exists("./Intel IA4Y/images_input"):
-    os.makedirs("./Intel IA4Y/images_input")
-
-print("Modules active. Current OpenCV version "+cv2.__version__)
+additional_defs.making_paths()
 
 
-def resizing_images(dir="./images_input/", dim=(200,200)):  # function resize and overwrite given images to 200x200px
+def resizing_images(dir="./img/images_train/", dim=(200,200)):  # function resize and overwrite given images to 200x200px
     for img in os.listdir(dir):
         non_resized = Image.open(dir+img)
         resized_img = non_resized.resize(dim, Image.ANTIALIAS)
         resized_img.save(dir+img)
 
 
-def image_read(dir="./images_input/"):  # function reads user asked for
+def resizing_test(dir="./img/images_test/", dim=(200,200)):
+    for img in os.listdir(dir):
+        non_resized = Image.open(dir+img)
+        resized_img = non_resized.resize(dim, Image.ANTIALIAS)
+        resized_img.save(dir+img)
+
+
+def image_read(dir="./img/images_train/"):  # function reads user asked for
     try:
         given_img = input("Type image name you want to load. Specify image type. \n "
                           "IMAGE NAME: ")
@@ -47,14 +51,12 @@ def image_read(dir="./images_input/"):  # function reads user asked for
         plt.imshow(img)
         plt.show()
 
-    except TypeError as e:
+    except TypeError:
         print("Oops! Something went wrong! Did you write correct file name?"
               " Remember to specify file type (ie. PNG/JPG)")
         additional_defs.error_sound()
 
 
 
-
-#resizing_images()  # uncomment for proper app execution
 
 image_read()
