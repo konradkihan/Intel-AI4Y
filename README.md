@@ -10,7 +10,6 @@ Used external modules
   - object_detection
   - tensorflow
   
-  Added face recognision OPV intel algorithm and image_read() function.
 
 # Project description: 
 Program made for Intel AI4Y project.
