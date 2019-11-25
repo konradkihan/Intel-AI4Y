@@ -78,3 +78,11 @@ root_name = input("Wpisz nazwę bez uwzględnienia liczb porządkowych: ")
 n = int(input("Wpisz zakres datasetu(ostatni wyraz): "))
 for x in range(1, n + 1):
     expansion(root_name + str(x))    
+    
+    
+# changing image vector 
+for dir in os.path.join("./images"):
+    for image_here in os.path.join("dir"+"image_here"):
+        cv2.imwrite(image_here + "_vector.png", image)
+        
+    
